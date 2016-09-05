@@ -1,0 +1,9 @@
+version: '2'
+services:
+    report-mongodb:
+        container_name: report-mongodb
+        image: mongo:3.3.9
+        ports:
+            - "27017:27017"
+        # volumes:
+        #     - ~/volumes/jhipster/report/mongodb/:/data/db/

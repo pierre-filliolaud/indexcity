@@ -1,0 +1,35 @@
+version: '2'
+services:
+    indexcity-app:
+        image: indexcity
+        external_links:
+            - indexcity-postgresql:postgresql
+            # Uncomment to have Cassandra working with the gateway
+            # - indexcity-cassandra:cassandra
+            - indexcity-elasticsearch:elasticsearch
+            - jhipster-registry:registry
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_CLOUD_CONFIG_URI=http://admin:admin@registry:8761/config
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/indexcity
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the cassandra cluster to start and execute the migration scripts
+            - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=elasticsearch:9300
+        ports:
+            - 8080:8080
+    indexcity-postgresql:
+        extends:
+            file: postgresql.yml
+            service: indexcity-postgresql
+        # Uncomment to have Cassandra working with the gateway
+        # extends:
+        #     file: cassandra-cluster.yml
+        #     service: indexcity-cassandra
+    indexcity-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: indexcity-elasticsearch
+    jhipster-registry:
+        extends:
+            file: jhipster-registry.yml
+            service: jhipster-registry

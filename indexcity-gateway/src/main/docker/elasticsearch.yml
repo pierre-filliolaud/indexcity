@@ -1,0 +1,10 @@
+version: '2'
+services:
+    indexcity-elasticsearch:
+        container_name: indexcity-elasticsearch
+        image: elasticsearch:2.3.5
+        # volumes:
+        #     - ~/volumes/jhipster/indexcity/elasticsearch/:/usr/share/elasticsearch/data/
+        ports:
+            - 9200:9200
+            - 9300:9300

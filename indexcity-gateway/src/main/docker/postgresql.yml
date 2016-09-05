@@ -1,0 +1,12 @@
+version: '2'
+services:
+    indexcity-postgresql:
+        container_name: indexcity-postgresql
+        image: postgres:9.5.3
+        # volumes:
+        #     - ~/volumes/jhipster/indexcity/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=indexcity
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

@@ -1,0 +1,24 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "creationDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "lastUpdateDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "dto": "no",
+    "service": "serviceClass",
+    "entityTableName": "item",
+    "pagination": "infinite-scroll",
+    "microserviceName": "report",
+    "searchEngine": "no"
+}

@@ -1,0 +1,8 @@
+version: '2'
+services:
+    injector-sonar:
+        container_name: injector-sonar
+        image: sonarqube:5.6-alpine
+        ports:
+            - 9000:9000
+            - 9092:9092
